@@ -9,13 +9,14 @@
  */
 int main()
 {
+	int i,j,k;
 	int a,b,c,d;
 
-	for (int i = 0; i < 8; i++)
+	for (i = 0; i < 8; i++)
 	{
-		for (int j = i + 1; j < 9; j++)
+		for (j = i + 1; j < 9; j++)
 		{
-			for (int k = j + 1; k < 10; k++)
+			for (k = j + 1; k < 10; k++)
 			{
 				a = i + '0';
 				b = j + '0';

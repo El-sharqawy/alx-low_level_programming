@@ -16,13 +16,11 @@ int main(void)
 	{
 		a = i / 10; /* divide on 10  */
 		b = i % 10; /* divide with reminder */
-
 		for (j = 0; j < 100; j++)
 		{
 			c = j / 10; /* divide on 10  */
 			d = j % 10; /* divide with reminder */
-
-			if (a < c || (a == c && b < d)
+			if (a < c || (a == c && b < d))
 			{
 				putchar(a + '0');
 				putchar(b + '0');

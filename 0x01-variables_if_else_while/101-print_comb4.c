@@ -7,31 +7,32 @@
  * 
  * Return: Always 0 (Success)
  */
-int main()
+int main(void)
 {
-	int i,j,k;
-	int a,b,c,d;
+	int i, j, k, l;
 
-	for (i = 0; i < 8; i++)
+	i = 0;
+	while (i < 1000)
 	{
-		for (j = i + 1; j < 9; j++)
+		j = i / 100; /* hundreds */
+		k = (i / 10) % 10; /* tens */
+		l = i % 10; /* singles */
+
+		if (j < k && k < l)
 		{
-			for (k = j + 1; k < 10; k++)
+			putchar(j + '0');
+			putchar(k + '0');
+			putchar(l + '0');
+
+			if (i < 700)
 			{
-				a = i + '0';
-				b = j + '0';
-				c = k + '0';
-				d = '\0';
-				putchar(a);
-				putchar(b);
-				putchar(c);
-				putchar(d);
-				if (a == '7' && b == '8' && c == '9')
-					continue;
-				putchar(', ');
+				putchar(',');
+				putchar(' ');
 			}
 		}
+		i++;
 	}
+	putchar('\n');
 
 	return (0);
 }

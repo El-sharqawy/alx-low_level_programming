@@ -18,8 +18,3 @@ void print_alpha(void)
 		_putchar(c[i]);
 	}
 }
-int main(void)
-{
-	print_alpha();
-	return (0);
-}

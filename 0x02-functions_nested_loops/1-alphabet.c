@@ -7,7 +7,7 @@
  *
  * Return: Nothing
  */
-void print_alpha(void)
+void print_alpha()
 {
 	char c[] = "abcdefghijklmnopqrstuvwxyz\n";
 	int i;

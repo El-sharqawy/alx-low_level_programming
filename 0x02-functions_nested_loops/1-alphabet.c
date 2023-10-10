@@ -1,12 +1,11 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
- * main - check the code
+ * print_alpha - check the code
  *
  * Description: prints alphabet
  *
- * Return: Always 0 (Success)
+ * Return: Nothing
  */
 void print_alpha(void)
 {

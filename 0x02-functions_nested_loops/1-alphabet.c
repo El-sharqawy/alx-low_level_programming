@@ -1,11 +1,7 @@
 #include "main.h"
 
-/**
- * print_alpha - check the code
- *
+/*
  * Description: prints alphabet
- *
- * Return: Nothing
  */
 void print_alphabet(void)
 {

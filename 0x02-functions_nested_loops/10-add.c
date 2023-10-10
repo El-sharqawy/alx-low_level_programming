@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * times_table - Check Main
+ * add - Check Main
  * @x: an input integer
  * @y: an input integer
  * Description: function that adds two integers.
@@ -9,5 +9,5 @@
  */
 int add(int x, int y)
 {
-	return x + y;
+	return (x + )y;
 }

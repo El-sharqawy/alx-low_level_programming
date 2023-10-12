@@ -15,8 +15,9 @@ void print_number(int c)
 	/* convert the int to string */
 	char buf[20];
 	int length = sprintf(buf, "%d", c);
+	int i;
 
-	for (int i = 0; i < length; i++)
+	for (i = 0; i < length; i++)
 	{
 		_putchar(buf[i]);
 	}

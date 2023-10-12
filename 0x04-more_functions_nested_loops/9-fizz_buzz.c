@@ -1,13 +1,7 @@
-/*
- * File: 9-fizz_buzz.c
- * Auth: Osama Elsharqawy
- */
-
 #include <stdio.h>
 
 /**
- * main - Check Main
- * Description: print Fizz Buzz
+ * main - print Fizz Buzz
  * Return: Always 0 (Success)
  */
 int main(void)

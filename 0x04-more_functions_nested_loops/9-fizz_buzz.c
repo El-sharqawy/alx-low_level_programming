@@ -3,16 +3,16 @@
  * Auth: Osama Elsharqawy
  */
 
-#include "main.h"
+#include <stdio.h>
 
 /**
- * fizz_buzz - Check Main
+ * main - Check Main
  * Description: function that prints the numbers from 1 to 100
  * followed by a new line. But for multiples of three print Fizz 
  * instead of the number and for the multiples of five print Buzz
  * Return: Nothing
  */
-void fizz_buzz(void)
+int main(void)
 {
 	int i;
 
@@ -35,10 +35,6 @@ void fizz_buzz(void)
 			printf("%d ", i);
 		}
 	}
-}
-
-int main(void)
-{
-	fizz_buzz();
+	printf("\n");
 	return(0);
 }

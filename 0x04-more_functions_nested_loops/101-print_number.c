@@ -1,12 +1,8 @@
-/*
- * File: 101-print_number.c
- * Auth: Osama Elsharqawy
- */
-
 #include "main.h"
 
 /**
  * print_number - Check Main
+ * @c: An input integer
  * Description: function that prints an integer.
  * Return: Nothing
  */

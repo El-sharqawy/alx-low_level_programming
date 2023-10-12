@@ -13,7 +13,7 @@ int main(void)
 	{
 		if (i % f == 0)
 		{
-			n /= f;
+			i /= f;
 			f--;
 		}
 	}

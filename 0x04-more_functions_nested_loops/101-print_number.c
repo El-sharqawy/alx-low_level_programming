@@ -21,5 +21,4 @@ void print_number(int c)
 	{
 		_putchar(buf[i]);
 	}
-	_putchar('\n');
 }

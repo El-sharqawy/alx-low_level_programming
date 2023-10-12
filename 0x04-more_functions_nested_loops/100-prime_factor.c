@@ -17,6 +17,6 @@ int main(void)
 			f--;
 		}
 	}
-	printf("%ld\n");
+	printf("%ld\n", f);
 	return (0);
 }

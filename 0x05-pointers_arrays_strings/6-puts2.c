@@ -8,11 +8,13 @@
  */
 void puts2(char *s)
 {
-	int i;
+	int i, count;
 
 	if (s)
 	{
-		for (i = 0; s[i] != '\0'; i += 2)
+		count = strlen(s);
+
+		for (i = 0; i < count - 1; i += 2)
 			putchar(s[i]);
 
 		putchar('\n');

@@ -6,18 +6,18 @@
  */
 int main(void)
 {
-	int random = 0, chr = 0;
+	int ra = 0, chr = 0;
 	time_t t;
 
 	srand((unsigned int) time(&t));
 	while (chr < 2772)
 	{
-		random = rand() % 128;
-		if ((chr + random) > 2772)
+		ra = rand() % 128;
+		if ((chr + ra) > 2772)
 			break;
 
-		chr = chr + random;
-		printf("%c", random);
+		chr = chr + ra;
+		printf("%c", ra);
 	}
 	printf("%c\n", (2772 - chr));
 	return (0);

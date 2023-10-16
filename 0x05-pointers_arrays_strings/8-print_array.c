@@ -10,7 +10,7 @@
 void print_array(int *a, int n)
 {
 	int i;
-	int * dynamicIntArray = (int *)malloc(n * sizeof(int));
+	int *dynamicIntArray = (int *)malloc(n * sizeof(int));
 
 	for (i = 0; i < n; i++)
 	{

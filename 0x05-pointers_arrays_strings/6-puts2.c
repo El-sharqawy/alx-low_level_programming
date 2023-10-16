@@ -14,7 +14,7 @@ void puts2(char *s)
 	{
 		count = strlen(s);
 
-		for (i = 0; i < count - 1; i += 2)
+		for (i = 0; i < count; i += 2)
 			putchar(s[i]);
 
 		putchar('\n');

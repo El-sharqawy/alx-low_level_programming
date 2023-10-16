@@ -10,8 +10,7 @@
 void print_array(int *a, int n)
 {
 	int i;
-	const int len = n;
-	int x[len];
+	int x[];
 
 	for (i = 0; i < n; i++)
 	{

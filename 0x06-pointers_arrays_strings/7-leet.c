@@ -7,19 +7,19 @@
  */
 char *leet(char *str)
 {
-	int i,j;
-	char leetChars[] = "AaEeOoTtLl";
-	char leetNums[] = "4433007711";
-	int len = strlen(str);
-	int lenChars = strlen(leetChars);
+	int i, j;
+	int up[] = {65, 69, 79, 84, 76};
+	int low[] = {97, 101, 111, 116, 108};
+	int num[] = {52, 51, 48, 55, 49};
+	int array_len = 5;
 
-	for (i = 0; i < len; i++)
+	for (i = 0; chAr[x] != '\0'; i++)
 	{
-		for (j = 0; j < lenChars; j++)
+		for (j = 0; j < array_len; j++)
 		{
-			if (str[i] == leetChars[j])
+			if (str[i] == up[j] || str[i] == low[j])
 			{
-				str[i] = leetNums[j];
+				str[i] = num[j];
 				break;
 			}
 		}

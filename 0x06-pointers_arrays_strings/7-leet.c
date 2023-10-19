@@ -11,10 +11,11 @@ char *leet(char *str)
 	char leetChars[] = "AaEeOoTtLl";
 	char leetNums[] = "4433007711";
 	int len = strlen(str);
+	int lenChars = strlen(leetChars);
 
 	for (i = 0; i < len; i++)
 	{
-		for (j = 0; j < strlen(leetChars); j++)
+		for (j = 0; j < lenChars; j++)
 		{
 			if (str[i] == leetChars[j])
 			{

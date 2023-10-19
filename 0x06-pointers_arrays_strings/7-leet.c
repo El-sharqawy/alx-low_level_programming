@@ -13,7 +13,7 @@ char *leet(char *str)
 	int num[] = {52, 51, 48, 55, 49};
 	int array_len = 5;
 
-	for (i = 0; chAr[x] != '\0'; i++)
+	for (i = 0; str[i] != '\0'; i++)
 	{
 		for (j = 0; j < array_len; j++)
 		{

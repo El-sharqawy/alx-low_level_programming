@@ -1,55 +1,35 @@
-#include <stdbool.h>
 #include "main.h"
 
 /**
- * isSeparator - check if character is seperator
- * @c: an input character
- * Return: true otherwise false
- */
-bool isSeparator(char c)
-{
-	int i;
-	char separators[] = " \t\n,;.!\"(){}";
-
-	for (i = 0; separators[i] != '\0'; i++)
-	{
-		if (c == separators[i])
-		{
-			return true;
-		}
-	}
-
-	return false;
-}
-
-/**
- * cap_string - capitalizes all words of a string.
- * @str: an input string
- * Return: Edited string
+ * cap_string - capitalizes all words of a string
+ * @str: input string.
+ * Return: the pointer to string.
  */
 char *cap_string(char *str)
 {
-	int capitalizeNext = 1;
+	int count = 0;
 	int i;
+	int sep_words[] = {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
 
-	for (i = 0; str[i] != '\0'; i++)
+	if (*(str + count) >= 97 && *(str + count) <= 122)
 	{
-		if (isSeparator(str[i]))
+		*(str + count) = *(str + count) - 32;
+	}
+	count++;
+	while (*(str + count) != '\0')
+	{
+		for (i = 0; i < 13; i++)
 		{
-			capitalizeNext = 1;
-		}
-		else if (isalpha(str[i]))
-		{
-			if (capitalizeNext)
+			if (*(str + count) == sep_words[i])
 			{
-				str[i] = toupper(str[i]);
-				capitalizeNext = 0; 
-			}
-			else
-			{
-				str[i] = tolower(str[i]);
+				if ((*(str + (count + 1)) >= 97) && (*(str + (count + 1)) <= 122))
+				{
+					*(str + (count + 1)) = *(str + (count + 1)) - 32;
+				}
+				break;
 			}
 		}
+		count++;
 	}
 	return (str);
 }

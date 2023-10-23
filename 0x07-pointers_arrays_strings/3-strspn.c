@@ -7,17 +7,17 @@
  */
 unsigned int _strspn(char *s, char *accept)
 {
-	char *str_start = str;
+	char *str_start = s;
 	unsigned int count = 0;
 
-	while (*str != '\0')
+	while (*s != '\0')
 	{
 		char *a = accept;
 		int found = 0;
 
 		for (; *a != '\0'; a++)
 		{
-			if (*str == *a)
+			if (*s == *a)
 			{
 				found = 1;
 				break;
@@ -27,7 +27,7 @@ unsigned int _strspn(char *s, char *accept)
 		if (found)
 		{
 			count++;
-			str++;
+			s++;
 		}
 		else
 		{

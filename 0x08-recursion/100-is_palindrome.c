@@ -72,5 +72,5 @@ int is_palindrome(char *s)
 		return (1);
 	}
 
-	return (is_palindrome_recursive(s, 0, len - 1) ? 1 : 0);
+	return (is_palindrome_recursive(s, 0, _strlen_recursion(s) - 1) ? 1 : 0);
 }

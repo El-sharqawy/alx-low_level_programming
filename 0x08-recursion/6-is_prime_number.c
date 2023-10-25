@@ -21,7 +21,8 @@ int is_prime_helper(int n, int div)
 }
 
 /**
- * is_prime_helper - returns 1 if the input integer is a prime number, otherwise return 0.
+ * is_prime_number - returns 1 if the input integer is
+ * a prime number, otherwise return 0.
  * @n: an input integer.
  * Return: 1, otherwise return 0.
  */

@@ -64,14 +64,14 @@ int is_palindrome(char *s)
 {
 	if (*s == '\0')
 	{
-		return 0;
+		return (0);
 	}
 
 	int len = _strlen_recursion(s);
 
 	if (len == 0)
 	{
-		return 1;
+		return (1);
 	}
 
 	return (is_palindrome_recursive(s, 0, len - 1) ? 1 : 0);

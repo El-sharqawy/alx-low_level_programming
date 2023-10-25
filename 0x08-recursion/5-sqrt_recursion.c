@@ -8,9 +8,9 @@
  */
 int sqrt_operation(int x, int y)
 {
-	if (y * y > n)
+	if (y * y > x)
 		return (-1);
-	if (y * y == n)
+	if (y * y == x)
 		return (y);
 
 	return (sqrt_operation(x, y + 1));

@@ -8,14 +8,12 @@
  */
 int sqrt_operation(int x, int y)
 {
-	if (y % (x / y) == 0)
-	{
-		if (y * (x / y) == 0)
-			return (y);
-		else
-			return (-1);
-	}
-	return (0 + sqrt_operation(x, y +1));
+	if (y * y > n)
+		return (-1);
+	if (y * y == n)
+		return (y);
+
+	return (sqrt_operation(x, y + 1));
 }
 
 /**
@@ -27,10 +25,6 @@ int _sqrt_recursion(int n)
 {
 	if (n < 0)
 		return (-1);
-	else if (n == 0)
-		return (0);
-	else if (n == 1)
-		return (1);
 
-	return (sqrt_operation(n, 2));
+	return (sqrt_operation(n, 0));
 }

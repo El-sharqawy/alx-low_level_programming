@@ -10,14 +10,14 @@ bool digit_check(char key[])
 	int i;
 	int len = strlen(key);
 
-	for(i = 0; i < len; i++)
+	for (i = 0; i < len; i++)
 	{
-		if(isdigit(key[i]) == 0)
+		if (isdigit(key[i]) == 0)
 		{
-			return false;
+			return (false);
 		}
 	}
-	return true;
+	return (true);
 }
 
 /**

@@ -1,12 +1,13 @@
 #include "main.h"
 
 /**
- * _strdup - returns a pointer to a newly allocated space in memory,
- * which contains a copy of the string given as a parameter.
- * @str: and input string.
- * Return: a pointer to the duplicated string, or NULL.
+ * str_concat - concatenates two strings.
+ * @s1: and input string.
+ * @s2: and input string.
+ * Return: newly allocated space in memory which contains the contents of s1,
+ * followed by the contents of s2, and null terminated.
  */
-char *_strdup(char *str)
+char *str_concat(char *s1, char *s2)
 {
 	char *my_str;
 	unsigned int i;

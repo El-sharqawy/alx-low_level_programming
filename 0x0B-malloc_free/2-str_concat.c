@@ -16,9 +16,9 @@ char *str_concat(char *s1, char *s2)
 
 	if (s1 == NULL && s2 == NULL)
 	{
-		my_str = (char *)malloc(1); // Allocate memory for an empty string
+		my_str = (char *)malloc(1); /* Allocate memory for an empty string */
 		if (my_str != NULL)
-			my_str[0] = '\0'; // Make it an empty string
+			my_str[0] = '\0'; /* Make it an empty string */
 		return (my_str);
 	}
 

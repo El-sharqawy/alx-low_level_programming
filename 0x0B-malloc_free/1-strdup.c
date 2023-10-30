@@ -12,12 +12,17 @@ char *_strdup(char *str)
 	unsigned int i;
 	unsigned int size = strlen(str);
 
-	if (size <= 0)
+	if (str == NULL)
 	{
 		return (NULL);
 	}
 
-	my_str = (char*)malloc(size * sizeof(char));
+	if (size == 0)
+	{
+		return ("");
+	}
+
+	my_str = (char *)malloc(size * sizeof(char));
 
 	if (my_str == NULL)
 	{

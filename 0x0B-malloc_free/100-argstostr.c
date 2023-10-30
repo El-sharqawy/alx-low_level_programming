@@ -37,7 +37,7 @@ char *argstostr(int ac, char **av)
 		
 		if (i < ac - 1)
 		{
-			my_str[index] = '\n';
+			my_str[index] = "\n";
 			index++;
 		}
 	}

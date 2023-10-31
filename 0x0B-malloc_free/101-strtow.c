@@ -1,3 +1,11 @@
+#include "main.h"
+
+/**
+ * strtow - splits a string into words.
+ * @str: an input string
+ * Return: a pointer to an array of strings, or NULL.
+ */
+
 char **strtow(char *str)
 {
 	int size, i, m, j = 0, k = 0;

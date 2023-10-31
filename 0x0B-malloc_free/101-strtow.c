@@ -73,7 +73,7 @@ char **strtow(char *str)
 		else if (j++ == 0)
 			start = i;
 	}
-	
+
 	my_words[k] = NULL;
 	return (my_words);
 }

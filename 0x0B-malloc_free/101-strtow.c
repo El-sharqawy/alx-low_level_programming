@@ -10,7 +10,7 @@ char **strtow(char *str)
 	int size, i, m, j = 0, k = 0;
 	char **my_words;
 
-	if (str == '' || str == NULL)
+	if (*str == '' || str == NULL)
 		return (NULL);
 
 	size = strlen(str);

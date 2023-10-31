@@ -7,7 +7,7 @@
  */
 char **strtow(char *str)
 {
-	int size, i, m, j = 0, k = 0;
+	int size, i, m, l, j = 0, k = 0;
 	char **my_words;
 
 	if (str == NULL || strlen(str) == 0)
@@ -18,19 +18,24 @@ char **strtow(char *str)
 		return (NULL);
 	for (i = 0; i <= size; i++)
 	{
-		if ((str[i] == ' ' || str[i] == '\0') && j > 0)
+		if (str[i] == ' ' || str[i] == '\0')
 		{
-			my_words[k] = (char *)malloc((j + 1) * sizeof(char));
-			if (my_words[k] == NULL)
+			if (j > 0)
 			{
-				free(my_words);
-				return (NULL);
+				my_words[k] = (char *)malloc((j + 1) * sizeof(char));
+				if (my_words[k] == NULL)
+				{
+					free(my_words);
+					return (NULL);
+				}
+				for (m = 0; m < j; m++)
+				{
+					my_words[k][m] = str[i - j + m];
+				}
+				my_words[k][j] = '\0';
+				k++;
+				j = 0;
 			}
-			for (m = 0; m < j; m++)
-				my_words[k][m] = str[i - j + m];
-			my_words[k][j] = '\0';
-			k++;
-			j = 0;
 		}
 		else
 			j++;

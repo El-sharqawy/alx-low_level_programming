@@ -5,17 +5,16 @@
  * @str: an input string
  * Return: a pointer to an array of strings, or NULL.
  */
-
 char **strtow(char *str)
 {
-	int size, i, m, j = 0, k = 0;
+	int size, i, m, l, j = 0, k = 0;
 	char **my_words;
 
 	if (str == NULL)
 		return (NULL);
 	size = strlen(str);
 	if (size == 0)
-		return (NULL);
+		return (NULL)
 
 	my_words = (char **)malloc((size + 1) * sizeof(char *));
 	if (my_words == NULL)
@@ -27,11 +26,15 @@ char **strtow(char *str)
 			if (j > 0)
 			{
 				my_words[k] = (char *)malloc((j + 1) * sizeof(char));
-				if (my_words[k] == NULL)
+				if (my_words[k] == NULL) {
+					for (l = 0; l < k; l++)
+						free(my_words[l]);
+					free(my_words);
 					return (NULL);
+				}
 				for (m = 0; m < j; m++)
 				{
-					my_words[k][m] = str [i - j + m];
+					my_words[k][m] = str[i - j + m];
 				}
 				my_words[k][j] = '\0';
 				k++;

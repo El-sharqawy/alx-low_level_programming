@@ -37,7 +37,7 @@ char **strtow(char *str)
 	if (k == 0)
 	{
 		free(my_words);
-		return NULL;
+		return (NULL);
 	}
 	return (my_words);
 }

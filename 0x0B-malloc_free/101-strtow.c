@@ -13,7 +13,7 @@ char **strtow(char *str)
 	if (str == NULL || strlen(str) == 0)
 		return (NULL);
 	size = strlen(str);
-	my_words = (char **)malloc((size + 1) * sizeof(char *));
+	my_words = (char **)malloc((size) * sizeof(char *));
 	if (my_words == NULL)
 		return (NULL);
 	for (i = 0; i <= size; i++)
@@ -43,10 +43,5 @@ char **strtow(char *str)
 			j++;
 	}
 	my_words[k] = NULL;
-	if (k == 0)
-	{
-		free(my_words);
-		return (NULL);
-	}
 	return (my_words);
 }

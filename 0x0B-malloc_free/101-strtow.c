@@ -59,7 +59,7 @@ char **strtow(char *str)
 			if (j > 0)
 			{
 				end = i;
-				temp = (char *)malloc((j + 1) * (char));
+				temp = (char *)malloc((j + 1) * sizeof(char));
 				if (temp == NULL)
 					return (NULL);
 				while (start < end)
@@ -70,7 +70,7 @@ char **strtow(char *str)
 				j = 0;
 			}
 		}
-		else if (j++ = 0)
+		else if (j++ == 0)
 			start = i;
 	}
 	

@@ -22,7 +22,7 @@ char **strtow(char *str)
 		{
 			if (j > 0)
 			{
-				my_words[k] = (char *)malloc((j + 1) * sizeof(char));
+				my_words[k] = (char *)malloc(j * sizeof(char));
 				if (my_words[k] == NULL)
 				{
 					free(my_words);

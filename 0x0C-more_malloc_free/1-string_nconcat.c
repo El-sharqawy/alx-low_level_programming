@@ -9,40 +9,38 @@
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int len1 = 0, len2 = n, i;
+	unsigned int len1, len2, lstr, i;
 	char *mystr;
 
-	if (s1 == NULL && s2 == NULL)
-	{
-		mystr = (char *)malloc(1); /* Allocate memory for an empty string */
-		if (mystr != NULL)
-			mystr[0] = '\0'; /* Make it an empty string */
-		return (mystr);
-	}
-
 	if (s1 == NULL)
-		return (strdup(s2));
+		s1 = "";
 
 	if (s2 == NULL)
-		return (strdup(s1));
+		s2 = "";
 
-	while (s1[len1] != '\0')
-	{
-		len1++;
-	}
-	mystr = (char *)malloc(len1 + n + 1);
+	for (len1 = 0; s1[len1] != '\0'; len1++)
+		;
+
+	for (len2 = 0; s2[len2] != '\0'; len2++)
+		;
+
+	if (n > len2)
+		n = len2;
+	lstr = len1 + n;
+
+	mystr = malloc(lstr + 1);
+	
 	if (mystr == NULL)
-	{
 		return (NULL);
-	}
-	for (i = 0; i < len1; i++)
+
+	for (i = 0; i < lstr; i++)
 	{
-		mystr[i] = s1[i];
+		if (i < len1)
+			mystr[i] = s1[i];
+		else
+			mystr[i] = s2[i - len1];
 	}
-	for (i = 0; i < len2; i++)
-	{
-		mystr[len1 + i] = s2[i];
-	}
-	mystr[len1 + len2] = '\0';
+
+	mystr[i] = '\0';
 	return (mystr);
 }

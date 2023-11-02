@@ -36,6 +36,16 @@ int _strlen(char *s)
 }
 
 /**
+ * ErrorHandler - handle Errors
+ * Return: Nothing.
+ */
+void ErrorHandler(void)
+{
+	printf("Error\n");
+	exit(98);
+}
+
+/**
  * main - multiplies two positive numbers
  * @argc: number of arguments
  * @argv: input arguments
@@ -44,53 +54,41 @@ int _strlen(char *s)
 int main(int argc, char *argv[])
 {
 	char *str1, *str2;
-	int len1, len2, total_len, i, digit1, digit2, carry, a = 0;
-	int *results;
+	int len1, len2, total_len, i, digit1, digit2, check, done = 0, *results;
 
-	str1 = argv[1];
-	str2 = argv[2];
+	str1 = argv[1], str2 = argv[2];
 	if (argc != 3 || _is_digit(str1) == 0 || _is_digit(str2) == 0)
-	{
-		printf("Error\n");
-		exit(98);
-	}
-
-	len1 = _strlen(str1);
-	len2 = _strlen(str2);
+		ErrorHandler();
+	len1 = _strlen(str1), len2 = _strlen(str2);
 	total_len = len1 + len2 + 1;
 	results = malloc(sizeof(int) * total_len);
 	if (results == NULL)
 		return (1);
-
 	for (i = 0; i <= len1 + len2; i++)
 		results[i] = 0;
-
 	for (len1 = len1 - 1; len1 >= 0; len1--)
 	{
 		digit1 = str1[len1] - '0';
-		carry = 0;
+		check = 0;
 		for (len2 = _strlen(str2) - 1; len2 >= 0; len2--)
 		{
 			digit2 = str2[len2] - '0';
-			carry += results[len1 + len2 + 1] + (digit1 * digit2);
-			results[len1 + len2 + 1] = carry % 10;
-			carry /= 10;
+			check += results[len1 + len2 + 1] + (digit1 * digit2);
+			results[len1 + len2 + 1] = check % 10;
+			check /= 10;
 		}
-		if (carry > 0)
-			results[len1 + len2 + 1] += carry;
+		if (check > 0)
+			results[len1 + len2 + 1] += check;
 	}
 	for (i = 0; i < total_len - 1; i++)
 	{
 		if (results[i])
-			a = 1;
-
-		if (a)
+			done = 1;
+		if (done)
 			_putchar(results[i] + '0');
 	}
-
-	if (a == 0)
+	if (done == 0)
 		_putchar('0');
-
 	_putchar('\n');
 	free(results);
 	return (0);

@@ -2,6 +2,8 @@
 #define __DOG_H__
 
 #include <stdlib.h>
+#include <stdio.h>
+
 /**
  * struct dog - a struct that contains dog informations
  * @name: the name of the dog.

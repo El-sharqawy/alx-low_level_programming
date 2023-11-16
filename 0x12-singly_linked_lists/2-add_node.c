@@ -11,7 +11,7 @@ list_t *add_node(list_t **head, const char *str)
 	list_t *newList;
 
 	if (str == NULL)
-		return NULL;
+		return (NULL);
 
 	newList = (list_t *)malloc(sizeof(list_t));
 
@@ -23,7 +23,7 @@ list_t *add_node(list_t **head, const char *str)
 	if (newList->str == NULL)
 	{
 		free(newList);
-		return NULL;
+		return (NULL);
 	}
 
 	newList->len = strlen(str);

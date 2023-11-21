@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * insert_nodeint_at_index - inserts a new node at a given position.
+ * delete_nodeint_at_index - inserts a new node at a given position.
  * @head: an input list.
  * @index: an input index to be deleted.
  * Return: 1 on Success, otherwise -1.

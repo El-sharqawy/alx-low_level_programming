@@ -12,5 +12,5 @@ int get_endianness(void)
 	num = 0x01;
 	arr = (char *)&num;
 
-	return (arr[0] == 0x01) ? 1 : 0;
+	return ((arr[0] == 0x01) ? 1 : 0);
 }

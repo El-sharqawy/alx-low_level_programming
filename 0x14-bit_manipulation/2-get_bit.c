@@ -8,6 +8,11 @@
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned long int bit = 1UL << index;
+	unsigned long int bit;
+
+	if (index >= sizeof(1UL) * 8)
+		return (-1);
+
+	bit = 1UL << index;
 	return ((n & bit) != 0);
 }

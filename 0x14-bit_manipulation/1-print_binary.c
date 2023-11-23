@@ -7,7 +7,7 @@
  */
 void print_binary(unsigned long int n)
 {
-	int i = 0, binary[32], j;
+	int i = 0, binary[128], j;
 
 	if (n == 0)
 	{

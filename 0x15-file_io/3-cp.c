@@ -51,8 +51,8 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to");
 		exit(97);
 	}
-	fd_from = open(file_from, O_RDONLY);
-	fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	fd_from = open(argv[1], O_RDONLY);
+	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	ErrorFiles(fd_from, fd_to, argv);
 	while ((bytes_read = read(fd_from, buffer, sizeof(buffer))) > 0)
 	{

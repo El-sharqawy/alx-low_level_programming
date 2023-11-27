@@ -14,13 +14,13 @@ int append_text_to_file(const char *filename, char *text_content)
 	if (!filename)
 		return (-1);
 
-	if (!access(filename, F_OK))
+	if (access(filename, F_OK) == -1)
 		return (-1);
 
-	if (!access(filename, W_OK))
+	if (!access(filename, W_OK) == -1)
 		return (-1);
 
-	file_desc = open(filename, O_WRONLY | O_TRUNC);
+	file_desc = open(filename, O_WRONLY | O_APPEND);
 	if (file_desc == -1)
 		return (-1);
 

@@ -9,7 +9,6 @@
 int append_text_to_file(const char *filename, char *text_content)
 {
 	int file_desc;
-	char buffer[1024];
 	ssize_t bytes_written;
 
 	if (!filename)

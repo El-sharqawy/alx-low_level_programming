@@ -48,7 +48,7 @@ int main(int argc, char **argv)
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO,"%s\n", "Usage: cp file_from file_to");
+		dprintf(STDERR_FILENO, "%s\n", "Usage: cp file_from file_to");
 		exit(97);
 	}
 	fd_from = open(argv[1], O_RDONLY);
@@ -57,10 +57,10 @@ int main(int argc, char **argv)
 	bytes_read = BUFFER_SIZE;
 	while (bytes_read == BUFFER_SIZE)
 	{
-		bytes_read = read(fd_from, buf, BUFFER_SIZE);
+		bytes_read = read(fd_from, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
 			ErrorFiles(bytes_read, 0, argv);
-		bytes_written = write(fd_to, buf, bytes_read);
+		bytes_written = write(fd_to, buffer, bytes_read);
 		if (bytes_written == -1)
 			ErrorFiles(0, bytes_written, argv);
 	}

@@ -61,7 +61,7 @@ void copy_file(const char *file_from, const char *file_to)
 	if (close(fd_from) == -1)
 		ErrorExistFd(fd_from);
 	if (close(fd_to) == -1)
-		ErrorExistFd(fd_to);
+		ErrorExistFd(fd_from);
 }
 
 /**

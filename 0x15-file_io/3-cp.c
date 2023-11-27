@@ -54,17 +54,16 @@ int main(int argc, char **argv)
 	fd_from = open(argv[1], O_RDONLY);
 	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	ErrorFiles(fd_from, fd_to, argv);
-	while ((bytes_read = read(fd_from, buffer, sizeof(buffer))) > 0)
+	bytes_read = BUFFER_SIZE;
+	while (bytes_read == BUFFER_SIZE)
 	{
-		bytes_written = write(fd_to, buffer, bytes_read);
+		bytes_read = read(fd_from, buf, BUFFER_SIZE);
+		if (bytes_read == -1)
+			ErrorFiles(bytes_read, 0, argv);
+		bytes_written = write(fd_to, buf, bytes_read);
 		if (bytes_written == -1)
-		{
-			ErrorFiles(0, bytes_read, argv);
-		}
+			ErrorFiles(0, bytes_written, argv);
 	}
-	if (bytes_read == -1)
-		ErrorFiles(bytes_read, 0, argv);
-
 	if (close(fd_from) == -1)
 		ErrorExistFd(fd_from);
 	if (close(fd_to) == -1)

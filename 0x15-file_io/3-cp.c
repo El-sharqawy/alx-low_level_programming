@@ -1,9 +1,19 @@
 #include "main.h"
 
 /**
+ * ErrorExistFd - exit for Fds.
+ * @fd: an input fd to print
+ * Return: Nothing.
+ */
+void ErrorExistFd(int fd)
+{
+	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+	exit(100);
+}
+/**
  * copy_file - function to copy file to another.
  * @file_from: an input ptr to file to copy from.
- * @file_tr: an input ptr to file to copy at.
+ * @file_to: an input ptr to file to copy at.
  * Return: Nothing.
  */
 void copy_file(const char *file_from, const char *file_to)
@@ -44,24 +54,20 @@ void copy_file(const char *file_from, const char *file_to)
 		exit(98);
 	}
 	if (close(fd_from) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
-		exit(100);
-	}
+		ErrorExistFd(fd_from);
 	if (close(fd_to) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
-		exit(100);
-	}
+		ErrorExistFd(fd_to);
 }
 
 /**
  * main - Entry point
  *
+ * @argc: an input number of args
+ * @argv: an input arguments
  * Description: copy file content from one to another.
  * Return: Always 0 (Success);
  */
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
 	const char *file_from;
 	const char *file_to;

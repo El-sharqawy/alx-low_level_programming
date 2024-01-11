@@ -11,40 +11,44 @@
 */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	unsigned int curPos = 0;
-	dlistint_t *newList;
+	unsigned int curPos = 1;
+	dlistint_t *newList = NULL;
 	dlistint_t *current;
 
-	newList = (dlistint_t *)malloc(sizeof(dlistint_t));
-	if (!newList || !h)
-		return (NULL);
-
-	newList->n = n;
-
-	if (idx == 0)
+	if (idx != 0)
 	{
-		newList->next = *h;
-		newList->prev = NULL;
-		if (h)
-			(*h)->prev = newList;
-		return (newList);
+		current = *h;
+		if (current != NULL)
+		{
+			while (current->prev != NULL)
+				current = current->prev;
+		}
+		for (; curPos < idx && current != NULL; curPos++)
+		{
+			if (curPos == idx)
+			{
+				if (!current->next)
+					newList == add_dnodeint_end(h, n);
+				else
+				{
+					newList = malloc(sizeof(dlistint_t));
+					if (newList != NULL)
+					{
+						newList->n = n;
+						newList->next = current->next;
+						newList->prev = current;
+						current->next->prev = newList;
+						current->next = newList;
+					}
+				}
+				break;
+			}
+			current = current->next;
+		}
 	}
-
-	current = *h;
-
-	while (current && curPos < idx - 1)
-		current = current->next;
-
-	if (!current)
+	else
 	{
-		free(newList);
-		return (*h);
+		newList = add_dnodeint(h, n);
 	}
-	newList->next = current->next;
-	newList->prev = current;
-	if (current->next)
-		current->next->prev = newList;
-	current->next = newList;
-	return (*h);
-
+	return (newList);
 }

@@ -3,6 +3,8 @@
 /**
 * free_dlistint - frees a dlistint_t list.
 *
+* @head: a pointer to dlistint_t list.
+*
 * Description: a function that frees double linked list.
 *
 * Return: void.

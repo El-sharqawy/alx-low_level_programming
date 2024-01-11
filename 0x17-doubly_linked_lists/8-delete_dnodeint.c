@@ -2,7 +2,7 @@
 
 /**
 * delete_dnodeint_at_index - Delete node at given specific index
-* 
+*
 * @head: a point to dlistint_t list pointer.
 * @index: the index of the given node to be deleted.
 *

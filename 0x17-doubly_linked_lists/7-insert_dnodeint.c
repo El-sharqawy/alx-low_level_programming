@@ -23,7 +23,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 			while (current->prev != NULL)
 				current = current->prev;
 		}
-		for (; curPos < idx && current != NULL; curPos++)
+		while (current != NULL)
 		{
 			if (curPos == idx)
 			{
@@ -44,11 +44,10 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 				break;
 			}
 			current = current->next;
+			curPos++;
 		}
 	}
 	else
-	{
 		newList = add_dnodeint(h, n);
-	}
 	return (newList);
 }

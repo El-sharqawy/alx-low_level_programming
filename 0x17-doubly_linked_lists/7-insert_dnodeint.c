@@ -13,7 +13,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	unsigned int curPos = 0;
 	dlistint_t *newList;
-	dlistint_t *current = *h;
+	dlistint_t *current;
 
 	newList = (dlistint_t *)malloc(sizeof(dlistint_t));
 	if (!newList || !h)
@@ -29,6 +29,9 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 			(*h)->prev = newList;
 		return (newList);
 	}
+
+	current = *h;
+
 	while (current && curPos < idx - 1)
 		current = current->next;
 

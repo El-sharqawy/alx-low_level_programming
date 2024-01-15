@@ -92,24 +92,17 @@ char *_strpbrk(char *s, char *accept)
  */
 char *_strstr(char *haystack, char *needle)
 {
-	while (*(haystack) != '\0')
+	int i, j;
+
+	for (i = 0; haystack[i] != '\0'; i++)
 	{
-		char *h = haystack;
-		char *n = needle;
-
-		while (*(n) != '\0' && *(h) == *(n))
+		for (j = 0; needle[j] != '\0'; j++)
 		{
-			h++;
-			n++;
+			if (haystack[i + j] != needle[j])
+				break;
 		}
-
-		if (*(n) == '\0')
-		{
-			return (haystack);
-		}
-
-		haystack++;
+		if (!needle[j])
+			return (&haystack[i]);
 	}
-
-	return ('\0');
+	return (NULL);
 }

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <Python.h>
+#define PY_SSIZE_T_CLEAN
 
 int add(int a, int b)
 {
@@ -16,7 +17,7 @@ int mul(int a, int b)
 	return (a * b);
 }
 
-int div(int a, int b)
+int divine(int a, int b)
 {
 	return (a / b);
 }
@@ -45,10 +46,10 @@ PyObject *pySub(PyObject *self, PyObject *args)
 	{
 		return (NULL);
 	}
-	return (Py_BuilValue("i", sub(a, b)));
+	return (Py_BuildValue("i", sub(a, b)));
 }
 
-PyObject *pyMul(PyObject *self, Pyobject *args)
+PyObject *pyMul(PyObject *self, PyObject *args)
 {
 	int a, b;
 
@@ -67,7 +68,7 @@ PyObject *pyDiv(PyObject *self, PyObject *args)
 	{
 		return (NULL);
 	}
-	return (Py_BuildValue("i", div(a, b)));
+	return (Py_BuildValue("i", divine(a, b)));
 }
 
 PyObject *pyMod(PyObject *self, PyObject *args)
@@ -88,10 +89,18 @@ static PyMethodDef s_methods[] =
 	{"mul", pyMul, METH_VARARGS},
 	{"div", pyDiv, METH_VARARGS},
 	{"mod", pyMod, METH_VARARGS},
-	{NULL, NULL, NULL},
+	{NULL, NULL, 0},
 };
 
-PyMODINIT_FUNC initPyOperaions(void)
+static struct PyModuleDef module_def = {
+    PyModuleDef_HEAD_INIT,
+    "cops", /* name of module */
+    NULL,   /* module documentation, may be NULL */
+    -1,     /* size of per-interpreter state of the module, or -1 if the module keeps state in global variables. */
+    s_methods
+};
+
+PyMODINIT_FUNC PyInit_cops(void)
 {
-	(void) Py_InitModule("cops", s_methods);
+	PyModule_Create(&module_def);
 }

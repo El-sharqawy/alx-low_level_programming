@@ -12,7 +12,7 @@ void hash_table_print(const hash_table_t *ht)
 	unsigned long int i, comma;
 	hash_node_t *item;
 
-	if (ht == NULL)
+	if (ht == NULL || ht->array == NULL)
 	{
 		return;
 	}
